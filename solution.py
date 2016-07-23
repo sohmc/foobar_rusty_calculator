@@ -32,8 +32,8 @@ def answer(input):
                 
 
             if (current_operator <= compare_operator):
-                print "  (" + current_operator + ") presendence is LESS THAN OR EQUAL TO operator at top of stack: " + str(compare_operator)
-                print "    Pushing to output..."
+                print "  (" + c + ") presendence is LESS THAN OR EQUAL TO operator at top of stack: " + operators[0]
+                print "    Pushing (" + operators[0] + ") to output..."
                 
                 output.append(operators.pop(0))
 
@@ -49,6 +49,6 @@ def answer(input):
 
 foo = "2+3*2"
 
-#foo = "2*4*3+9*3+5"
+foo = "2*4*3+9*3+5"
 
 answer(foo)
