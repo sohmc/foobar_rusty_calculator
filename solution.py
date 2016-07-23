@@ -7,16 +7,16 @@ def answer(input):
     multiply_operator = 10
     addition_operator = 5
 
-    print "GIVEN: " + input
+    if DEBUG > 5: print "GIVEN: " + input
 
     for c in input:
         num_search = re.match('\d', c)
 
         if (re.match('\d', c)):
-            print "Got number " + c + "; pushing to output" if DEBUG > 0
+            if DEBUG > 0: print "Got number " + c + "; pushing to output"
             output.append(c)
         elif (re.match('[\*\+]', c)):
-            print "Got operator..."
+            if DEBUG > 5: print "Got operator..."
             current_operator = 0
             compare_operator = 0
 
@@ -32,20 +32,20 @@ def answer(input):
                     compare_operator = 5
 
                 if (current_operator < compare_operator):
-                    print "  (" + c + ") presendence is LESS THAN OR EQUAL TO operator at top of stack: " + operators[0]
-                    print "    Pushing (" + operators[0] + ") to output..."
+                    if DEBUG > 5: print "  (" + c + ") presendence is LESS THAN OR EQUAL TO operator at top of stack: " + operators[0]
+                    if DEBUG > 5: print "    Pushing (" + operators[0] + ") to output..."
                     output.append(operators.pop())
                 else:
                     break
             # END WHILE LOOP
 
-            print "  Pushing (" + c + ") to OPERATOR stack..."
+            if DEBUG > 0: print "  Pushing (" + c + ") to OPERATOR stack..."
             operators.append(c)
     # END FOR LOOP
 
     output += operators
-    print "Output so far: "
-    print output
+    if DEBUG > 0: print output
+    print "".join(output)
 
     
 
@@ -57,5 +57,5 @@ foo = "2+3*2"
 foo = "2*4*3+9*3+5"
 
 answer(foo)
-print foo
-print "Should be 243**93*5++"
+if DEBUG > 0: print foo
+if DEBUG > 0: print "Should be 243**93*5++"
