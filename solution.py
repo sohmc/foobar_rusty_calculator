@@ -74,7 +74,7 @@ def answer(str):
         print " ".join(output)
         return output
     else: 
-        print "".join(output)
+        return "".join(output)
 
     
 
